@@ -17,7 +17,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #000;
+    background: linear-gradient(135deg, #1a1a1a, #000000);
     color: white;
     display: flex;
     align-items: center;
@@ -27,23 +27,51 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    animation: fadeIn 1s ease;
 }
 
 img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-bottom: 15px;
 }
 
 h1 {
     margin: 10px 0;
+    font-size: 24px;
 }
 
 .loader {
     margin-top: 15px;
     font-size: 14px;
     opacity: 0.7;
+}
+
+/* spinner */
+.spinner {
+    margin: 15px auto;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 </style>
 
@@ -59,6 +87,7 @@ setTimeout(function() {
 <div class="container">
     <img src="https://i.ibb.co/svkgZ96J/ico.jpg" alt="Poráčska dolina">
     <h1>Poráčska dolina</h1>
+    <div class="spinner"></div>
     <div class="loader">Načítavam virtuálnu prehliadku...</div>
 </div>
 </body>
