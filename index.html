@@ -24,6 +24,13 @@ body {
     justify-content: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden;
+}
+
+/* fade-out efekt */
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
 .container {
@@ -40,6 +47,12 @@ img {
     width: 100%;
     border-radius: 12px;
     margin-bottom: 15px;
+    transition: transform 1s ease;
+}
+
+/* zoom efekt pred prechodom */
+img.zoom {
+    transform: scale(1.2);
 }
 
 h1 {
@@ -47,13 +60,6 @@ h1 {
     font-size: 24px;
 }
 
-.loader {
-    margin-top: 15px;
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-/* spinner */
 .spinner {
     margin: 15px auto;
     width: 30px;
@@ -62,6 +68,12 @@ h1 {
     border-top: 3px solid white;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+}
+
+.loader {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.7;
 }
 
 @keyframes spin {
@@ -77,8 +89,14 @@ h1 {
 
 <script>
 setTimeout(function() {
-  window.location.href = "https://lacihvi.42web.io/Pano/Poracska_dolina/tour.html";
-}, 1500);
+    document.body.classList.add("fade-out");
+    document.querySelector("img").classList.add("zoom");
+
+    setTimeout(function() {
+        window.location.href = "https://lacihvi.42web.io/Pano/Poracska_dolina/tour.html";
+    }, 800);
+
+}, 1200);
 </script>
 
 </head>
